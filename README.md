@@ -21,6 +21,6 @@ $.isElement(document.body);
 ```javascript
 $.overload([$.isNumber,$.isNumber],o,a);
 $.overload([$.isString,$.isNumber],o,b);
-$(1,1);//a
-$("1",1);//b
+o(1,1);//a
+o("1",1);//b
 ```
