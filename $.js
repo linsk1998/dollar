@@ -7,6 +7,9 @@ var $=function(){
 	function ckeck(ckeckFunc,index){
 		return ckeckFunc(this[index]);
 	}
+	function compare(x, y){//比较函数
+		return x.checks.length-y.checks.length;
+	}
 	$.overload=function(checks,func,target){
 		if(target){
 			rules.push({
@@ -14,6 +17,7 @@ var $=function(){
 				'func':func,
 				'target':target
 			});
+			rules.sort(compare);
 		}else{
 			var args=checks;
 			var thisVal=func;
@@ -21,8 +25,10 @@ var $=function(){
 			while(i--){
 				var rule=rules[i];
 				if(args.callee===rule.func){
-					if(rule.checks.every(ckeck,args)){
-						return rule.target.apply(thisVal,args);
+					if(rule.checks.length>=args.length){
+						if(rule.checks.every(ckeck,args)){
+							return rule.target.apply(thisVal,args);
+						}
 					}
 				}
 			}

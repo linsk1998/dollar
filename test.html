@@ -15,10 +15,15 @@ function a(int1,int2){
 function b(str1,int2){
 	alert("b");
 }
+function c(int1){
+	alert("c");
+}
 $.overload([$.isNumber,$.isNumber],$,a);
 $.overload([$.isString,$.isNumber],$,b);
+$.overload([$.isNumber],$,c);
 $(1,1);//a
 $("1",1);//b
+$(1);//c
 </script>
 </body>
 </html>
