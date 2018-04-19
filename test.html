@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+<meta charset="utf-8"/>
+<title>测试</title>
+<script src="https://cdn.bootcss.com/es6-shim/0.35.3/es6-shim.js"></script>
+<script src="$.js"></script>
+</head>
+<body>
+<script>
+function a(int1,int2){
+	alert("a");
+}
+function b(str1,int2){
+	alert("b");
+}
+$.overload([$.isNumber,$.isNumber],$,a);
+$.overload([$.isString,$.isNumber],$,b);
+$(1,1);//a
+$("1",1);//b
+</script>
+</body>
+</html>
