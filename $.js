@@ -39,6 +39,12 @@ var $=function(){
 $.isArray=function(a){
 	return Array.isArray(a);
 };
+Sky.isDate=function(obj){
+	return Object.prototype.toString.call(obj)==='[object Date]';
+};
+Sky.isRegExp=function(obj){
+	return Object.prototype.toString.call(obj)==='[object RegExp]';
+};
 $.isString=function(obj){
 	return Object.prototype.toString.call(obj)==='[object String]';
 };
@@ -113,19 +119,6 @@ if(this.HTMLElement){
 		return obj?obj.nodeType===1:false;
 	};
 }
-$.isEmpty=function(obj){
-	if(obj==null) return true;
-	if($.isNumber(obj.length)){
-		return !obj.length;
-	}
-	if($.isNumber(obj.size)){
-		return !obj.size;
-	}
-	if($.isFunction(obj.size)){
-		return !obj.size();
-	}
-	if($.isFunction(obj.toArray)){
-		return !obj.toArray().length;
-	}
-	return false;
+$.isDocument=function(obj){
+	return obj===document;
 };
