@@ -39,10 +39,10 @@ var $=function(){
 $.isArray=function(a){
 	return Array.isArray(a);
 };
-Sky.isDate=function(obj){
+$.isDate=function(obj){
 	return Object.prototype.toString.call(obj)==='[object Date]';
 };
-Sky.isRegExp=function(obj){
+$.isRegExp=function(obj){
 	return Object.prototype.toString.call(obj)==='[object RegExp]';
 };
 $.isString=function(obj){
